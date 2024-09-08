@@ -1,0 +1,27 @@
+.tox/
+
+# Byte-compiled / optimized files
+__pycache__/
+.cache/
+.config/
+*.py[cod]
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Unit test / coverage reports
+.bash_history
+*,cover
+.coverage
+coverage.xml
+htmlcov/
+html/
+pylint/
+
+.mypy_cache/
+
+venv/
+.python_history
