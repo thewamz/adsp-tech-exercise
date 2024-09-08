@@ -5,12 +5,12 @@ Entry point - read environment, commandline and set up logging
 import logging
 import traceback
 from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
-from sys import exit as sys_exit
 from datetime import datetime
+from sys import exit as sys_exit
 
 from . import about
-from .utils import to_pandas, to_csv
 from .metropolitan_police_service import MetropolitanPoliceService
+from .utils import to_csv, to_pandas
 
 logging.basicConfig(level=logging.INFO)
 
@@ -63,7 +63,7 @@ def main():
     try:
         search_date = datetime.strptime(args.month, "%Y-%m")
     except (TypeError, ValueError):
-        search_date = datetime.now()
+        search_date = datetime.now().date()
 
     try:
         msp = MetropolitanPoliceService(force_id, search_date)

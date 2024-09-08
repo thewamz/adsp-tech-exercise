@@ -3,8 +3,9 @@
 Interact with the Metropolitan Police Service API to
 retrieve stop and search data
 """
-import requests
 import datetime
+
+import requests
 
 from .exceptions import MetropolitanPoliceServiceError
 
@@ -25,7 +26,7 @@ class MetropolitanPoliceService:
         """Retrieve stop and search from the API"""
         url = BASE_API_URL.format(
             force_id=self.force_id,
-            month="" if self.search_month is None else self.search_month,
+            month=self.search_month,
         )
         response = requests.get(url)
 
