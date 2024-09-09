@@ -44,12 +44,16 @@ Build docker image: `make build-image`
 
 Run docker image in a container: `make run-image`
 
-SSH into the running docker container: `docker exec -it adsp bash`
-
 Then run the app to retrieve stop and search data inside the docker container:
 
 ```bash
-python -m adsp -f <force-id> -m <month .e.g. YYYY-MM> -c <csv_file>
+docker exec adsp python -m adsp -f <force-id> -m <month .e.g. YYYY-MM> -c <csv_file>
+```
+
+Copy csv file from docker container:
+
+```bash
+docker cp adsp:/code/output.csv output.csv
 ```
 
 ## Cron job
