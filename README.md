@@ -21,11 +21,53 @@ source adsp_env/bin/activate
 Install dependencies:
 
 ```bash
-pip install -e .
+pip install -r requirements.txt
 ```
 
 To view the help output:
 
 ```bash
 python -m adsp -h
+```
+
+To retrieve stop and search data:
+
+```bash
+python -m adsp -f <force-id> -m <month .e.g. YYYY-MM> -c <csv_file>
+```
+
+## Docker
+
+You can run the app in a docker container
+
+Build docker image: `make build-image`
+
+Run docker image in a container: `make run-image`
+
+SSH into the running docker container: `docker exec -it adsp bash`
+
+Then run the app to retrieve stop and search data inside the docker container:
+
+```bash
+python -m adsp -f <force-id> -m <month .e.g. YYYY-MM> -c <csv_file>
+```
+
+## Cron job
+
+Enter the crontab scheduling:
+
+```bash
+crontab -e
+```
+
+Append the command to the end of the crontab file if you want to run the app directly with Python:
+
+```bash
+0 3 28 * * /usr/bin/python -m adsp -f <force-id> -m <month .e.g. YYYY-MM> -c <csv_file>
+```
+
+Alternatively, you can append the command below to the end of the crontab file if you want to run the app using Docker:
+
+```bash
+0 3 28 * * docker exec adsp python -m adsp -f <force-id> -m <month .e.g. YYYY-MM> -c <csv_file>
 ```
