@@ -13,7 +13,7 @@ Make sure you have Python3.10 or higher installed on your machine.
 First create virtual environment and activate it:
 
 ```bash
-virtualenv -p python3.6 adsp_env
+virtualenv adsp_env
 
 source adsp_env/bin/activate
 ```
