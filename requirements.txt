@@ -1,0 +1,4 @@
+requests~=2.32.0
+pandas~=2.2.0
+importlib_metadata~=8.4.0
+importlib_resources~=6.4.0
